@@ -18,6 +18,7 @@ class CreateComunicationsTable extends Migration
             $table->string("title");
             $table->text("description");
             $table->string("image");
+            $table->string("folder");
             $table->timestamps();
         });
     }

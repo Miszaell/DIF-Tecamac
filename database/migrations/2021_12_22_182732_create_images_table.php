@@ -18,6 +18,7 @@ class CreateImagesTable extends Migration
             $table->string("image");
             $table->string("title")->nullable();
             $table->string("description")->nullable();
+            $table->string("folder");
             $table->enum("location", array('banner','nosotros', 'galeria', 'segundoBanner', 'mision', 'vision'));
             $table->timestamps();
         });
