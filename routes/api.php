@@ -4,6 +4,7 @@ use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\ComunicationController;
 use App\Http\Controllers\DocumentController;
 use App\Http\Controllers\ImageController;
+use App\Http\Controllers\UsersController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -28,6 +29,17 @@ Route::group([
     Route::post('login', [AuthController::class, 'login']);
     Route::post('signup', [AuthController::class, 'signUp']);
     Route::get('logout', [AuthController::class,'logout'])->middleware('auth:api');
+});
+
+Route::group([
+    'prefix' => 'admin/users',
+    'middleware' => 'auth:api',
+], function () {
+    Route::get("getAll", [UsersController::class, 'get']);
+    Route::get("getById", [UsersController::class, 'getById']);
+    Route::post("post", [UsersController::class, 'post']);
+    Route::put("put", [UsersController::class, 'put']);
+    Route::delete("delete", [UsersController::class, 'delete']);
 });
 
 Route::group([

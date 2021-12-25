@@ -46,7 +46,7 @@
                     <div class="logo-nav">
                         <a href="index.html">
                             <img src="{{ asset('assets/images/logo.png') }}" style="width: 15%; margin-top: 2%;"
-                                alt="Company logo" />
+                                alt="logo" />
                         </a>
                         <div class="clear-toggle"></div>
                         <div id="main-menu" class="collapse scroll navbar-right">
