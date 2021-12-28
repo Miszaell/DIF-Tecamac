@@ -21,11 +21,12 @@ class UsersController extends Controller
 
         $result->name = $req['name'];
         $result->email = $req['email'];
-        $result->pasword = Hash::make($req['password']);
+        $result->password = bcrypt($req['password']);
         $result->save();
 
         if ($result) {
             $response = [
+                "detail" => "success",
                 "result" => $result,
             ];
         } else {
@@ -43,13 +44,14 @@ class UsersController extends Controller
         $user = User::where('id', $req['id'])->first();
 
         $user->name = $req['name'];
-        $user->name = $req['email'];
-        $user->name = $req['password'];
+        $user->email = $req['email'];
+        // $user->name = $req['password'];
 
         $user->save();
 
         if ($user) {
             $response = [
+                "detail" => "success",
                 "result" => $user,
             ];
         } else {

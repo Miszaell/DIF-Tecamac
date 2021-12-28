@@ -10,6 +10,14 @@
                 single-line
                 hide-details
             ></v-text-field>
+            <v-btn
+                color="green darken-2"
+                class="ma-2 white--text"
+                @click="newUser()"
+            >
+                Nuevo
+                <v-icon right dark> person_add </v-icon>
+            </v-btn>
         </v-card-title>
         <v-data-table
             :headers="headers"
@@ -17,7 +25,7 @@
             :sort-by="['Nombre']"
             :search="search"
             :loading="loading"
-            @click:row="test"
+            @click:row="updateUser"
             multi-sort
             class="elevation-1"
         ></v-data-table>
@@ -65,13 +73,22 @@ export default {
         this.getUsers();
     },
     methods: {
-        test(row) {
+        newUser (){
+            this.$router.push({
+                name: "user_detail",
+                params: { action: "post" }
+            })
+        },
+
+        updateUser(row) {
             this.users.map((item, index) => {
                 item.selected = item === row;
                 this.$set(this.users, index, item);
             });
-            let url = "home";
-            window.location.href = url;
+            this.$router.push({
+                name: "user_detail",
+                params: { action: "put", user: row },
+            });
             this.message = row.name;
             this.color = "green";
             this.snackbar = true;

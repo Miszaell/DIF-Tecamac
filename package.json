@@ -33,4 +33,5 @@
         "vuetify": "^2.6.1",
         "vuetify-loader": "^1.7.3"
     }
+
 }

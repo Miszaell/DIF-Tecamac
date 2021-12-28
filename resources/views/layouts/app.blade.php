@@ -23,8 +23,8 @@
 </head>
 
 <body>
-    <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light shadow-sm position-fixed top-0"
+    <div>
+        {{-- <nav class="navbar navbar-expand-md navbar-light shadow-sm position-fixed top-0"
             style="background: #d4447c;z-index: 2000; min-width: 100%;">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
@@ -37,27 +37,12 @@
                 </button>
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <!-- Left Side Of Navbar -->
+
                     <ul class="navbar-nav me-auto">
 
                     </ul>
 
-                    <!-- Right Side Of Navbar -->
-                    <ul class="navbar-nav ms-auto">
-                        <!-- Authentication Links -->
-                        {{-- @guest
-                            @if (Route::has('login'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-                                </li>
-                            @endif
-
-                            @if (Route::has('register'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                                </li>
-                            @endif
-                        @else --}}
+                    <ul id="auth" class="navbar-nav ms-auto">
                             <li class="nav-item">
                                 <a class="nav-link text-white" href="{{ route('home') }}">
                                     Index
@@ -84,9 +69,8 @@
                                 </a>
                             </li>
                             <li class="nav-item dropdown" id="logout-user">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle text-white" href="#" role="button"
+                                <a id="user" class="nav-link dropdown-toggle text-white" href="#" role="button"
                                     data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{-- {{ Auth::user()->name }} --}}
                                     <div id="user"></div>
                                 </a>
 
@@ -96,16 +80,15 @@
                                     </a>
                                 </div>
                             </li>
-                        {{-- @endguest --}}
                     </ul>
                 </div>
             </div>
-        </nav>
+        </nav> --}}
 
-        <main class="py-4">
+        <main style="margin-bottom: 0px">
             @yield('content')
         </main>
     </div>
 </body>
-<script src="{{ asset('assets/js/auth.js') }}"></script>
+
 </html>

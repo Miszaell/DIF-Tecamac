@@ -34,7 +34,7 @@ class ImageController extends Controller
             $image->move($destinationPath, $image_name);
 
             $saveImage = new image();
-            $saveImage->name = $req['name'];
+            $saveImage->title = $req['title'];
             $saveImage->folder = $folder;
             $saveImage->image = '/images/gallery/' . $folder . '/' . $image_name;
             $saveImage->location = $req['location'];
@@ -60,20 +60,21 @@ class ImageController extends Controller
         if ($req->hasFile('image')) {
             $obsolet_image = public_path() . $record->image;
             $image = $req->file('image');
-            $image_name = Str::orderedUuid() . '.' . $image->getClientOriginalExtension();
+            $img_name = Str::orderedUuid() . '.' . $image->getClientOriginalExtension();
             $destinationPath = public_path('/images/gallery/' . $record->folder . '/');
-            $image->move($destinationPath, $image_name);
+            $image->move($destinationPath, $img_name);
             if (@file_exists($obsolet_image)) {
                 unlink($obsolet_image);
             }
+            $image_name = '/images/gallery/' . $record->folder . '/' . $img_name;
         } else {
             $image_name = $record->image;
         }
 
         $update = image::where("id", $req['id'])->update([
             "location" => $req['location'],
-            "name" => $req['name'],
-            "image" => '/images/gallery/' . $record->folder . '/' . $image_name,
+            "title" => $req['title'],
+            "image" => $image_name,
         ]);
 
         $res = image::where('id', $req['id'])->first();
@@ -98,7 +99,7 @@ class ImageController extends Controller
         $record = image::where("id", "=", $req['id'])->first();
 
         if ($record) {
-            $result = File::deleteDirectory(public_path('images/transparencia/' . $record->folder . '/'));
+            $result = File::deleteDirectory(public_path('images/gallery/' . $record->folder . '/'));
 
             if ($result) {
                 $delete = image::where("id", "=", $req['id'])->delete();
@@ -112,6 +113,7 @@ class ImageController extends Controller
                     $response = [
                         "detail" => "error",
                         "result" => "Ocurrió un problema al eliminar el registro.",
+                        "errors" => $delete
                     ];
                 }
             } else {

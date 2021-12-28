@@ -17,7 +17,7 @@
             :sort-by="['Nombre']"
             :search="search"
             :loading="loading"
-            @click:row="test"
+            @click:row="updateDoc"
             multi-sort
             class="elevation-1"
         ></v-data-table>
@@ -56,7 +56,7 @@ export default {
                     value: "id",
                 },
                 { text: "Nombre", value: "name" },
-                { text: "Email", value: "email" },
+                { text: "Documento", value: "document" },
             ],
         };
     },
@@ -65,16 +65,23 @@ export default {
         this.getDocuments();
     },
     methods: {
-        test(row) {
+        newDoc() {
+            this.$router.push({
+                name: "file_detail",
+                params: { action: "post" },
+            });
+        },
+
+
+        updateDoc(row) {
             this.documents.map((item, index) => {
                 item.selected = item === row;
                 this.$set(this.documents, index, item);
             });
-            let url = "home";
-            window.location.href = url;
-            this.message = row.name;
-            this.color = "green";
-            this.snackbar = true;
+            this.$router.push({
+                name: "file_detail",
+                params: { action: "put", doc: row },
+            });
         },
 
         getDocuments() {

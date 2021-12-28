@@ -1,26 +1,52 @@
 <template>
     <v-app>
-        <form>
-            <v-text-field
-                v-model="email"
-                :error-messages="emailErrors"
-                label="E-mail"
-                required
-                @input="$v.email.$touch()"
-                @blur="$v.email.$touch()"
-            ></v-text-field>
-            <v-text-field
-                v-model="password"
-                :error-messages="passwordErrors"
-                label="Password"
-                required
-                @input="$v.password.$touch()"
-                @blur="$v.password.$touch()"
-            ></v-text-field>
+        <v-card
+            elevation="2"
+            shaped
+            class="py-4"
+            style="
+                margin-left: 30%;
+                margin-right: 30%;
+                padding-right: 10%;
+                padding-left: 10%;
+            "
+        >
+            <form>
+                <v-text-field
+                    v-model="email"
+                    :error-messages="emailErrors"
+                    label="E-mail"
+                    required
+                    @input="$v.email.$touch()"
+                    @blur="$v.email.$touch()"
+                ></v-text-field>
+                <v-text-field
+                    v-model="password"
+                    :error-messages="passwordErrors"
+                    label="Password"
+                    required
+                    @input="$v.password.$touch()"
+                    @blur="$v.password.$touch()"
+                ></v-text-field>
 
-            <v-btn class="mr-4" @click="submit"> submit </v-btn>
-            <v-btn @click="clear"> clear </v-btn>
-        </form>
+                <div
+                    style="
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                    "
+                >
+                    <v-btn class="ma-2" @click="submit" color="success">
+                        submit
+                        <v-icon right dark> login </v-icon>
+                    </v-btn>
+                    <v-btn class="ma-2" @click="clear" color="error">
+                        clear
+                        <v-icon right dark> clear </v-icon>
+                    </v-btn>
+                </div>
+            </form>
+        </v-card>
     </v-app>
 </template>
 <script>
@@ -52,7 +78,8 @@ export default {
         passwordErrors() {
             const errors = [];
             if (!this.$v.password.$dirty) return errors;
-            !this.$v.password.required && errors.push("La contraseña es requerida");
+            !this.$v.password.required &&
+                errors.push("La contraseña es requerida");
             return errors;
         },
         emailErrors() {
@@ -72,11 +99,20 @@ export default {
             api.login("auth/login", formData)
                 .then((response) => {
                     if (response.data.access_token) {
-                        sessionStorage.setItem("userId", response.data.user.id);
-                        sessionStorage.setItem("Token", response.data.access_token);
-                        sessionStorage.setItem("userName", response.data.user.name);
-                        if(sessionStorage.getItem("Token")){
-                            window.location.href = "home";
+                        localStorage.setItem("userId", response.data.user.id);
+                        localStorage.setItem(
+                            "Token",
+                            response.data.access_token
+                        );
+                        localStorage.setItem(
+                            "userName",
+                            response.data.user.name
+                        );
+                        if (localStorage.getItem("Token")) {
+                            this.$router.push({
+                                name: "home",
+                                params: { from: "login" },
+                            });
                         }
                     }
                 })
