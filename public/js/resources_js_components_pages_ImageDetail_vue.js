@@ -155,6 +155,7 @@ function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" =
 //
 //
 //
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
@@ -2509,6 +2510,7 @@ var render = function () {
                   _c("v-file-input", {
                     attrs: {
                       disabled: _vm.isEditing,
+                      accept: "image/png, image/*",
                       placeholder: "Inserta una imágen",
                       color: "pink",
                       label: "Imágen",

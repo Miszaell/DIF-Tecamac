@@ -61,6 +61,12 @@ const routes = [
                 component: () => import("../components/pages/DocumentDetail.vue"),
                 meta: { requiresAuth: true },
             },
+            {
+                path: "/read-pdf",
+                name: "read_pdf",
+                component: () => import("../components/import/ReaderPDF.vue"),
+                meta: { requiresAuth: true },
+            },
         ],
     },
 ];

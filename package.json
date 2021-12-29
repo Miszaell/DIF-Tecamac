@@ -28,10 +28,10 @@
         "vue-template-compiler": "^2.6.12"
     },
     "dependencies": {
+        "vue-pdf-embed": "^1.0.5",
         "vue-router": "^3.5.3",
         "vuelidate": "^0.7.7",
         "vuetify": "^2.6.1",
         "vuetify-loader": "^1.7.3"
     }
-
 }

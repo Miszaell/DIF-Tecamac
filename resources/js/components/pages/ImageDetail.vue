@@ -40,6 +40,7 @@
                         v-model="media"
                         :disabled="isEditing"
                         @change="onImageChange()"
+                        accept="image/png, image/*"
                         placeholder="Inserta una imágen"
                         color="pink"
                         label="Imágen"

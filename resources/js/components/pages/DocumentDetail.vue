@@ -2,7 +2,7 @@
     <v-app>
         <v-card elevation="2" shaped class="pa-4">
             <v-toolbar flat>
-                <v-icon class="mr-2">insert_photo</v-icon>
+                <v-icon class="mr-2">drive_folder_upload</v-icon>
                 <v-toolbar-title class="font-weight-light">
                     {{ titulo }}
                 </v-toolbar-title>
@@ -17,34 +17,37 @@
                     <v-text-field
                         label="Nombre"
                         color="pink"
-                        v-model="title"
+                        v-model="name"
                         :disabled="isEditing"
                     ></v-text-field>
-                    <v-autocomplete
-                        v-model="location"
-                        :disabled="isEditing"
-                        :items="items"
-                        color="pink"
-                        hide-no-data
-                        hide-selected
-                        item-text="description"
-                        item-value="value"
-                        label="Ubicación de la imágen"
-                        placeholder="Comienza a escribir para elegir"
-                        prepend-icon="image_search"
-                        return-object
-                    ></v-autocomplete>
+                    <div
+                        class="d-flex flex-column justify-space-between align-center mb-5"
+                    >
+                        <span v-if="record">Ver documento</span>
+                        <v-btn
+                            color="success"
+                            fab
+                            x-large
+                            v-if="record"
+                            dark
+                            @click="readDoc()"
+                        >
+                            <v-icon x-large>description</v-icon>
+                        </v-btn>
+                    </div>
                 </v-col>
-                <v-col>
+                <v-col class="py-5">
                     <v-file-input
                         v-model="media"
                         :disabled="isEditing"
-                        @change="onImageChange()"
-                        placeholder="Inserta una imágen"
+                        @change="onDocChange()"
+                        accept="application/pdf"
+                        placeholder="Inserta un documento"
+                        class="mb-5"
                         color="pink"
-                        label="Imágen"
+                        label="Documento"
                         show-size
-                        prepend-icon="add_photo_alternate"
+                        prepend-icon="upload_file"
                     >
                         <template v-slot:selection="{ text }">
                             <v-chip
@@ -57,43 +60,9 @@
                             </v-chip>
                         </template>
                     </v-file-input>
-                    <v-card elevation="2" shaped class="pa-2">
-                        <div
-                            class="d-flex flex-column justify-space-between align-center"
-                        >
-                            <v-slider
-                                v-model="width"
-                                class="align-self-stretch"
-                                min="400"
-                                max="800"
-                                color="pink"
-                                step="1"
-                            ></v-slider>
-
-                            <v-img
-                                :aspect-ratio="16 / 9"
-                                :width="width"
-                                min-height="350"
-                                :src="preview"
-                            >
-                                <template v-slot:placeholder>
-                                    <v-row
-                                        class="fill-height ma-0"
-                                        align="center"
-                                        justify="center"
-                                    >
-                                        <v-progress-circular
-                                            indeterminate
-                                            color="pink darken-5"
-                                        ></v-progress-circular>
-                                    </v-row>
-                                </template>
-                            </v-img>
-                        </div>
-                    </v-card>
                     <v-btn
                         color="green darken-2"
-                        class="ma-2 white--text"
+                        class="mx-3 white--text"
                         @click="sendTo()"
                         v-show="!isEditing"
                     >
@@ -102,7 +71,7 @@
                     </v-btn>
                     <v-btn
                         color="error"
-                        class="ma-2 white--text"
+                        class="mx-3 white--text"
                         @click="del()"
                         v-show="!isEditing"
                         :disabled="isEditing"
@@ -114,7 +83,7 @@
 
                     <v-btn
                         color="blue"
-                        class="ma-2 white--text"
+                        class="mx-3 white--text"
                         @click="cancel()"
                     >
                         Cancelar
@@ -144,7 +113,7 @@ import api from "../../utils/request";
 export default {
     data() {
         return {
-            titulo: "Subir imágen",
+            titulo: "Subir documento",
             message: "",
             isEditing: false,
             color: "",
@@ -153,11 +122,12 @@ export default {
             loading: false,
             enableDelete: true,
             width: 500,
-            record: null,
-            title: "",
+            record: {},
+            name: "",
             location: "",
             media: [],
-            preview: "https://cdn.vuetifyjs.com/documents/parallax/material.jpg",
+            preview: this.img,
+            doc_preview: "off",
             items: [
                 {
                     description: "Banner",
@@ -188,7 +158,7 @@ export default {
     },
 
     computed: {
-        img: function () {
+        doc: function () {
             return this.preview;
         },
     },
@@ -199,34 +169,38 @@ export default {
 
     methods: {
         getImage() {
-            console.log(this.$route.params.doc)
             if (this.$route.params.action !== "post") {
                 this.record = this.$route.params.doc;
                 if (this.record.id) {
                     this.isEditing = true;
-                    this.titulo = "Actualizar datos de la imágen";
-                    let url = localStorage.getItem("url").split("/api/")[0];
-                    let image = this.record.image;
-                    if (image) {
-                        this.preview = url + this.record.image;
+                    this.titulo = "Actualizar datos del documento";
+                    let document = this.record.document;
+                    if (document) {
+                        this.preview = this.record.document;
                     }
-                    this.title = this.record.name;
+                    this.name = this.record.name;
                     this.location = this.record.location;
+                } else {
+                    this.isEditing = false;
+                    this.titulo = "Subir documento";
+                    this.preview =
+                        "https://cdn.vuetifyjs.com/images/parallax/material.jpg";
                 }
-            }
-            if (!this.record.id) {
-                this.isEditing = false;
-                this.titulo = "Subir imágen";
-                this.preview =
-                    "https://cdn.vuetifyjs.com/images/parallax/material.jpg";
             }
         },
 
-        onImageChange() {
-            this.preview =
-                "https://cdn.vuetifyjs.com/images/parallax/material.jpg";
+        readDoc() {
+            this.$router.push({
+                name: "read_pdf",
+                params: { doc: this.record, url: this.preview, preview: this.doc_preview},
+            });
+        },
+
+        onDocChange() {
+            this.preview = "";
             const files = this.media;
             if (files) {
+                this.doc_preview = "on"
                 const reader = new FileReader();
                 reader.onload = (e) => {
                     this.preview = e.target.result;
@@ -247,11 +221,10 @@ export default {
             this.isEditing = true;
             let formData = new FormData();
 
-            formData.append("title", this.title);
-            formData.append("location", this.location.value);
-            formData.append("image", this.media);
+            formData.append("name", this.name);
+            formData.append("document", this.media);
 
-            api.post("admin/documents/post", formData)
+            api.post("admin/docs/post", formData)
                 .then((response) => {
                     if (response.data.detail == "success") {
                         this.$router.push({ path: "files" });
@@ -271,19 +244,13 @@ export default {
 
             formData.append("_method", "PUT");
             formData.append("id", this.record.id);
-            formData.append("title", this.title);
-
-            if (typeof this.location == "object") {
-                formData.append("location", this.location.value);
-            } else {
-                formData.append("location", this.location);
-            }
+            formData.append("name", this.name);
 
             if (this.media) {
-                formData.append("image", this.media);
+                formData.append("document", this.media);
             }
 
-            api.post("admin/documents/put", formData)
+            api.post("admin/docs/put", formData)
                 .then((response) => {
                     if (response.data.detail == "success") {
                         this.isEditing = true;
@@ -307,7 +274,7 @@ export default {
             formData.append("_method", "delete");
             formData.append("id", this.record.id);
 
-            api.post("admin/documents/delete", formData)
+            api.post("admin/docs/delete", formData)
                 .then((response) => {
                     if (response.data.detail == "success") {
                         this.$router.push({ path: "files" });

@@ -54,7 +54,7 @@ Route::group([
 });
 
 Route::group([
-    'prefix' => 'admin/documents',
+    'prefix' => 'admin/docs',
     'middleware' => 'auth:api',
 ], function () {
     Route::get("getAll", [DocumentController::class, 'get']);

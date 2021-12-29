@@ -35,4 +35,6 @@ Auth::routes();
 
     Route::get('login', function () {return view("pages.index");})->name('login');;
 
+    Route::get('read-pdf', function () {return view("pages.index");})->name('read-pdf');;
+
     Route::view('ubris', 'ubris.index')->name('ubris');

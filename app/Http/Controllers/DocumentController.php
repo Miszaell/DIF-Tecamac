@@ -45,10 +45,12 @@ class DocumentController extends Controller
             $saveDocument->save();
 
             $response = [
+                "detail" => "success",
                 "result" => $saveDocument,
             ];
         } else {
             $response = [
+                "detail" => "error",
                 "result" => "No se ha recibido ningún documento.",
             ];
         }
@@ -105,17 +107,27 @@ class DocumentController extends Controller
                 $delete = document::where("id", "=", $req['id'])->delete();
 
                 if ($delete) {
-                    $response = ["result" => $delete];
+                    $response = [
+                        "result" => $delete,
+                        "detail" => "success"];
                 } else {
-                    $response = ["result" => "Ocurrió un problema al eliminar el registro."];
+                    $response = [
+                        "result" => "Ocurrió un problema al eliminar el registro.",
+                        "detail" => "error",
+                    ];
                 }
             } else {
-                $response = ["result" => "Ocurrió un problema al eliminar el registro."];
+                $response = [
+                    "result" => "Ocurrió un problema al eliminar el registro.",
+                    "detail" => "error",
+                ];
             }
 
             return $response;
         } else {
-            return $response = ["result" => "Este registro no existe."];
+            return $response = ["result" => "Este registro no existe.",
+                "detail" => "error",
+            ];
         }
 
     }
