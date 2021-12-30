@@ -66,6 +66,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   components: {
@@ -3171,6 +3172,7 @@ var render = function () {
       _c(
         "v-app-bar",
         {
+          staticClass: "mb-5",
           attrs: {
             absolute: "",
             color: "white",
@@ -3276,23 +3278,27 @@ var render = function () {
           },
         },
         [
-          _c("v-container", { staticStyle: { height: "1500px" } }, [
-            _c(
-              "div",
-              {
-                staticClass: "app-content",
-                staticStyle: { background: "#e1e1e1" },
-              },
-              [
-                _c("vue-pdf-embed", {
-                  ref: "pdfRef",
-                  attrs: { source: _vm.pdfSource, page: _vm.page },
-                  on: { rendered: _vm.handleDocumentRender },
-                }),
-              ],
-              1
-            ),
-          ]),
+          _c(
+            "v-container",
+            { staticStyle: { height: "1500px", "padding-top": "80px" } },
+            [
+              _c(
+                "div",
+                {
+                  staticClass: "app-content",
+                  staticStyle: { background: "#e1e1e1" },
+                },
+                [
+                  _c("vue-pdf-embed", {
+                    ref: "pdfRef",
+                    attrs: { source: _vm.pdfSource, page: _vm.page },
+                    on: { rendered: _vm.handleDocumentRender },
+                  }),
+                ],
+                1
+              ),
+            ]
+          ),
         ],
         1
       ),

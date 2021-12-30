@@ -121,6 +121,7 @@ __webpack_require__.r(__webpack_exports__);
         if (response.data.access_token) {
           localStorage.setItem("userId", response.data.user.id);
           localStorage.setItem("Token", response.data.access_token);
+          localStorage.setItem("token_expires", response.data.expires_at);
           localStorage.setItem("userName", response.data.user.name);
 
           if (localStorage.getItem("Token")) {

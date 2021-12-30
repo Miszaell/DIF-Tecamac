@@ -12,36 +12,6 @@
                     style="width: 15%"
                 ></v-img>
             </v-toolbar-title>
-
-            <v-spacer></v-spacer>
-
-            <v-btn icon v-if="$route.name !== 'login'">
-                <v-icon>mdi-magnify</v-icon>
-            </v-btn>
-
-            <!-- <div
-                style="height: 30px; padding-top: 12px"
-                v-if="!$route.name == 'login'"
-                v-on:value-changed="updateUser"
-            >
-                <h5>
-                    {{ name }}
-                </h5>
-            </div> -->
-
-            <v-menu bottom left v-if="$route.name !== 'login'">
-                <template v-slot:activator="{ on, attrs }">
-                    <v-btn icon color="yellow" v-bind="attrs" v-on="on">
-                        <v-icon>mdi-dots-vertical</v-icon>
-                    </v-btn>
-                </template>
-
-                <v-list>
-                    <v-list-item @click="logout()">
-                        <v-list-item-title>Logout</v-list-item-title>
-                    </v-list-item>
-                </v-list>
-            </v-menu>
         </v-app-bar>
 
         <div v-if="$route.name !== 'login'">

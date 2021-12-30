@@ -5361,6 +5361,15 @@ var routes = [{
       requiresAuth: true
     }
   }, {
+    path: "/comunication-detail",
+    name: "comunication_detail",
+    component: function component() {
+      return __webpack_require__.e(/*! import() */ "resources_js_components_pages_ComunicationDetail_vue").then(__webpack_require__.bind(__webpack_require__, /*! ../components/pages/ComunicationDetail.vue */ "./resources/js/components/pages/ComunicationDetail.vue"));
+    },
+    meta: {
+      requiresAuth: true
+    }
+  }, {
     path: "/media",
     name: "media",
     component: function component() {
@@ -5405,6 +5414,15 @@ var routes = [{
     meta: {
       requiresAuth: true
     }
+  }, {
+    path: "/test",
+    name: "test",
+    component: function component() {
+      return __webpack_require__.e(/*! import() */ "resources_js_components_import_Editor_vue").then(__webpack_require__.bind(__webpack_require__, /*! ../components/import/Editor.vue */ "./resources/js/components/import/Editor.vue"));
+    },
+    meta: {
+      requiresAuth: true
+    }
   }]
 }];
 var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
@@ -5414,11 +5432,15 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
 });
 router.beforeEach(function (to, from, next) {
   var isAuthenticated = localStorage.getItem("Token");
+  var expires = localStorage.getItem("token_expires");
+  var date = new Date().toISOString().slice(0, 10);
+  var time = new Date().toISOString().slice(11, 19);
+  var dateTimeNow = date + " " + time;
 
   if (to.matched.some(function (record) {
     return record.meta.requiresAuth;
   })) {
-    if (!isAuthenticated) {
+    if (!isAuthenticated || expires <= dateTimeNow) {
       next({
         path: "/login",
         params: {
@@ -46327,7 +46349,7 @@ module.exports = JSON.parse('{"name":"axios","version":"0.21.4","description":"P
 /******/ 		// This function allow to reference async chunks
 /******/ 		__webpack_require__.u = (chunkId) => {
 /******/ 			// return url for filenames not based on template
-/******/ 			if ({"resources_js_components_layouts_Admin_vue":1,"resources_js_components_auth_Login_vue":1,"resources_js_components_Inicio_vue":1,"resources_js_components_Users_vue":1,"resources_js_components_pages_UserDetail_vue":1,"resources_js_components_Comunication_vue":1,"resources_js_components_Images_vue":1,"resources_js_components_pages_ImageDetail_vue":1,"resources_js_components_Documents_vue":1,"resources_js_components_pages_DocumentDetail_vue":1,"resources_js_components_import_ReaderPDF_vue":1}[chunkId]) return "js/" + chunkId + ".js";
+/******/ 			if ({"resources_js_components_layouts_Admin_vue":1,"resources_js_components_auth_Login_vue":1,"resources_js_components_Inicio_vue":1,"resources_js_components_Users_vue":1,"resources_js_components_pages_UserDetail_vue":1,"resources_js_components_Comunication_vue":1,"resources_js_components_pages_ComunicationDetail_vue":1,"resources_js_components_Images_vue":1,"resources_js_components_pages_ImageDetail_vue":1,"resources_js_components_Documents_vue":1,"resources_js_components_pages_DocumentDetail_vue":1,"resources_js_components_import_ReaderPDF_vue":1,"resources_js_components_import_Editor_vue":1}[chunkId]) return "js/" + chunkId + ".js";
 /******/ 			// return url for filenames based on template
 /******/ 			return undefined;
 /******/ 		};

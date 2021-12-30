@@ -38,6 +38,12 @@ const routes = [
                 meta: { requiresAuth: true },
             },
             {
+                path: "/comunication-detail",
+                name: "comunication_detail",
+                component: () => import("../components/pages/ComunicationDetail.vue"),
+                meta: { requiresAuth: true },
+            },
+            {
                 path: "/media",
                 name: "media",
                 component: () => import("../components/Images.vue"),
@@ -58,13 +64,20 @@ const routes = [
             {
                 path: "/file-detail",
                 name: "file_detail",
-                component: () => import("../components/pages/DocumentDetail.vue"),
+                component: () =>
+                    import("../components/pages/DocumentDetail.vue"),
                 meta: { requiresAuth: true },
             },
             {
                 path: "/read-pdf",
                 name: "read_pdf",
                 component: () => import("../components/import/ReaderPDF.vue"),
+                meta: { requiresAuth: true },
+            },
+            {
+                path: "/test",
+                name: "test",
+                component: () => import("../components/import/Editor.vue"),
                 meta: { requiresAuth: true },
             },
         ],
@@ -79,9 +92,12 @@ const router = new VueRouter({
 
 router.beforeEach((to, from, next) => {
     let isAuthenticated = localStorage.getItem("Token");
-
+    let expires = localStorage.getItem("token_expires");
+    let date = new Date().toISOString().slice(0, 10);
+    let time = new Date().toISOString().slice(11, 19);
+    let dateTimeNow = date + " " + time;
     if (to.matched.some((record) => record.meta.requiresAuth)) {
-        if (!isAuthenticated) {
+        if (!isAuthenticated || expires <= dateTimeNow) {
             next({
                 path: "/login",
                 params: { nextUrl: to.fullPath },

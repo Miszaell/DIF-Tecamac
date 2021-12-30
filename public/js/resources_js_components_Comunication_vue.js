@@ -67,11 +67,11 @@ __webpack_require__.r(__webpack_exports__);
         sortable: false,
         value: "id"
       }, {
-        text: "Nombre",
-        value: "name"
+        text: "Titulo",
+        value: "title"
       }, {
-        text: "Email",
-        value: "email"
+        text: "Descripción",
+        value: "description"
       }]
     };
   },
@@ -87,11 +87,13 @@ __webpack_require__.r(__webpack_exports__);
 
         _this.$set(_this.records, index, item);
       });
-      var url = "home";
-      window.location.href = url;
-      this.message = row.name;
-      this.color = "green";
-      this.snackbar = true;
+      this.$router.push({
+        name: "comunication_detail",
+        params: {
+          action: "put",
+          record: row
+        }
+      });
     },
     getRecords: function getRecords() {
       var _this2 = this;

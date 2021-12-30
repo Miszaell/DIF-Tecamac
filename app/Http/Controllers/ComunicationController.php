@@ -60,19 +60,20 @@ class ComunicationController extends Controller
         if ($req->hasFile('image')) {
             $obsolet_image = public_path() . $record->image;
             $image = $req->file('image');
-            $image_name = Str::orderedUuid() . '.' . $image->getClientOriginalExtension();
+            $img_name = Str::orderedUuid() . '.' . $image->getClientOriginalExtension();
             $destinationPath = public_path('/images/comunication/' . $record->folder . '/');
-            $image->move($destinationPath, $image_name);
+            $image->move($destinationPath, $img_name);
             if (@getimagesize($obsolet_image)) {
                 unlink($obsolet_image);
             }
+            $image_name = '/images/comunication/' . $record->folder . '/' . $img_name;
         } else {
             $image_name = $record->image;
         }
 
         $update = comunication::where("id", $req['id'])->update([
             "title" => $req['title'],
-            "image" => '/images/comunication/' . $record->folder . '/' . $image_name,
+            "image" => $image_name,
             "description" => $req['description'],
         ]);
 

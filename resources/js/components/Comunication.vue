@@ -55,8 +55,8 @@ export default {
                     sortable: false,
                     value: "id",
                 },
-                { text: "Nombre", value: "name" },
-                { text: "Email", value: "email" },
+                { text: "Titulo", value: "title" },
+                { text: "Descripción", value: "description" },
             ],
         };
     },
@@ -70,11 +70,8 @@ export default {
                 item.selected = item === row;
                 this.$set(this.records, index, item);
             });
-            let url = "home";
-            window.location.href = url;
-            this.message = row.name;
-            this.color = "green";
-            this.snackbar = true;
+
+            this.$router.push({name: "comunication_detail", params: { action: "put", record: row }});
         },
 
         getRecords() {

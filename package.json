@@ -30,6 +30,7 @@
     "dependencies": {
         "vue-pdf-embed": "^1.0.5",
         "vue-router": "^3.5.3",
+        "vue-trix": "^1.2.0",
         "vuelidate": "^0.7.7",
         "vuetify": "^2.6.1",
         "vuetify-loader": "^1.7.3"

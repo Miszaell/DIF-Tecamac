@@ -104,6 +104,7 @@ export default {
                             "Token",
                             response.data.access_token
                         );
+                        localStorage.setItem("token_expires", response.data.expires_at);
                         localStorage.setItem(
                             "userName",
                             response.data.user.name

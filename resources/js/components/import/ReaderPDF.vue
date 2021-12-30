@@ -5,6 +5,7 @@
             color="white"
             elevate-on-scroll
             scroll-target="#scrolling-techniques-7"
+            class="mb-5"
         >
             <v-toolbar-title>{{ doc_title }}</v-toolbar-title>
             <v-btn text class="mx-5" @click="sendBack()">
@@ -37,7 +38,7 @@
             color="grey lighten-2"
             max-height="900"
         >
-            <v-container style="height: 1500px">
+            <v-container style="height: 1500px;padding-top:80px">
                 <div class="app-content" style="background: #e1e1e1">
                     <vue-pdf-embed
                         ref="pdfRef"
