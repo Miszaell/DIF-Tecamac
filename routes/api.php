@@ -1,10 +1,4 @@
 <?php
-
-use App\Http\Controllers\Auth\AuthController;
-use App\Http\Controllers\ComunicationController;
-use App\Http\Controllers\DocumentController;
-use App\Http\Controllers\ImageController;
-use App\Http\Controllers\UsersController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -21,56 +15,4 @@ use Illuminate\Support\Facades\Route;
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
-});
-
-Route::group([
-    'prefix' => 'auth',
-], function () {
-    Route::post('login', [AuthController::class, 'login']);
-    Route::post('signup', [AuthController::class, 'signUp']);
-    Route::get('logout', [AuthController::class,'logout'])->middleware('auth:api');
-});
-
-Route::group([
-    'prefix' => 'admin/users',
-    'middleware' => 'auth:api',
-], function () {
-    Route::get("getAll", [UsersController::class, 'get']);
-    Route::get("getById", [UsersController::class, 'getById']);
-    Route::post("post", [UsersController::class, 'post']);
-    Route::put("put", [UsersController::class, 'put']);
-    Route::delete("delete", [UsersController::class, 'delete']);
-});
-
-Route::group([
-    'prefix' => 'admin/comunicacion',
-    'middleware' => 'auth:api',
-], function () {
-    Route::get("getAll", [ComunicationController::class, 'get']);
-    Route::get("getById", [ComunicationController::class, 'getById']);
-    Route::post("post", [ComunicationController::class, 'post']);
-    Route::put("put", [ComunicationController::class, 'put']);
-    Route::delete("delete", [ComunicationController::class, 'delete']);
-});
-
-Route::group([
-    'prefix' => 'admin/docs',
-    'middleware' => 'auth:api',
-], function () {
-    Route::get("getAll", [DocumentController::class, 'get']);
-    Route::get("getById", [DocumentController::class, 'getById']);
-    Route::post("post", [DocumentController::class, 'post']);
-    Route::put("put", [DocumentController::class, 'put']);
-    Route::delete("delete", [DocumentController::class, 'delete']);
-});
-
-Route::group([
-    'prefix' => 'admin/images',
-    'middleware' => 'auth:api',
-], function () {
-    Route::get("getAll", [ImageController::class, 'get']);
-    Route::get("getById", [ImageController::class, 'getById']);
-    Route::post("post", [ImageController::class, 'post']);
-    Route::put("put", [ImageController::class, 'put']);
-    Route::delete("delete", [ImageController::class, 'delete']);
 });
