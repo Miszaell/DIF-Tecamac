@@ -6,7 +6,7 @@
     <meta name="author" content="Misael Villegas">
     <meta name="keywords" content="">
     <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DIF Tecámac</title>
     <link rel="icon" href="{{ asset('assets/images/logo.png') }}" type="image/x-icon">
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
@@ -76,25 +76,30 @@
     </header>
 
     <section id="home" class="home">
-
-        <div class="flexslider">
-            <ul class="slides scroll">
-                <li class="first">
-                    <div class="slider-text-wrapper">
-                        <div class="container">
-                            <div class="big" style="font-size: 160px;font-weight: 900;margin-top: 20%">DIF
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="flexslider">
+                    <ul class="slides scroll">
+                        <li class="first">
+                            <div class="slider-text-wrapper">
+                                <div class="container">
+                                    <div class="big"
+                                        style="font-size: 160px;font-weight: 900;margin-top: 13%">DIF
+                                    </div>
+                                    <hr>
+                                    <div class="small">Tecámac</div>
+                                </div>
                             </div>
-                            <hr>
-                            <div class="small">Tecámac</div>
-                        </div>
-                    </div>
-                    <img style="height: 100%" src="{{ asset('assets/images/slider/home-background.png') }}" alt="">
-                </li>
-            </ul>
+                            <img style="height: 100%" src="{{ asset('assets/images/slider/home-background.png') }}"
+                                alt="">
+                        </li>
+                    </ul>
+                </div>
+            </div>
         </div>
     </section>
 
-    <section class="section" style="padding-top: 0%">
+    <section class="section" style="padding-top: 0%;">
         <div class="container">
             <div class="row">
                 <div class="tab-content-main">
@@ -104,7 +109,8 @@
                                 <div class="margin-bottom-30">
                                     <div class="tab1-features">
                                         <div class="info">
-                                            <h4 class="text-center">En Tecámac somos solidarios de corazón</h4>
+                                            <h4 class="text-center" style="line-height: 40px">En Tecámac somos
+                                                solidarios de corazón</h4>
                                             <p class="text-center" style="font-size: 20px">Vestibulum tortor quam,
                                                 feugiat vitae, ultricies eget, tempor sit
                                                 amet. Et netus et malesuada fames ac turpis egestas tristique
@@ -176,40 +182,38 @@
                                 <div class="col-md-6 margin-bottom-30">
                                     <div class="tab1-features">
                                         <div class="info-menu">
-                                            <a href="{{ route('ubris') }}">
-                                                <h4 class="text-center cursor-pointer pink">unidad básica de
-                                                    rehabilitaión e integración
-                                                    social (ubris)</h4>
-                                            </a>
+                                            <h4 class="text-center pink">unidad básica de
+                                                rehabilitaión e integración
+                                                social (ubris)</h4>
                                         </div>
                                         <div class="info-menu">
-                                            <h4 class="text-center cursor-pointer gray">procuraduría de protección
+                                            <h4 class="text-center gray">procuraduría de protección
                                                 niñas, niños y
                                                 adolescentes</h4>
                                         </div>
                                         <div class="info-menu pink">
-                                            <h4 class="text-center cursor-pointer pink">Estancias infantiles</h4>
+                                            <h4 class="text-center pink">Estancias infantiles</h4>
                                         </div>
                                         <div class="info-menu">
-                                            <h4 class="text-center cursor-pointer gray">centro de atención a víctimas de
+                                            <h4 class="text-center gray">centro de atención a víctimas de
                                                 violencia
                                                 (cavv)</h4>
                                         </div>
                                         <div class="info-menu">
-                                            <h4 class="text-center cursor-pointer pink">centro de desarrollo comunitario
+                                            <h4 class="text-center pink">centro de desarrollo comunitario
                                                 (cdc)</h4>
                                         </div>
                                         <div class="info-menu">
-                                            <h4 class="text-center cursor-pointer gray">casas club del adulto mayor
+                                            <h4 class="text-center gray">casas club del adulto mayor
                                                 (ccam)</h4>
                                         </div>
                                         <div class="info-menu pink">
-                                            <h4 class="text-center cursor-pointer pink">dirección de atención y defensa
+                                            <h4 class="text-center pink">dirección de atención y defensa
                                                 de los derechos
                                                 de la mujer</h4>
                                         </div>
                                         <div class="info-menu">
-                                            <h4 class="text-center cursor-pointer gray">trabajo social</h4>
+                                            <h4 class="text-center gray">trabajo social</h4>
                                         </div>
                                     </div>
 
@@ -647,7 +651,7 @@
                                     educación y economía: resaltando y fomentando sus derechos humanos.
                                 </p>
                             </div>
-                            <div class="col-md 6" style="margin-left:5%;">
+                            <div class="col-md 6 img-md">
                                 <img src="{{ asset('assets/images/others/mision.png') }}" alt="">
                             </div>
                         </div>
@@ -656,7 +660,7 @@
                                 <img src="{{ asset('assets/images/others/vision.png') }}" alt="">
                             </div>
                             <div class="col-md 6">
-                                <h4 style="color: #d4447c;font-size: 25px; margin-bottom: 20px;">Visión</h4>
+                                <h4 style="color: #d4447c;font-size: 25px; margin-bottom: 20px;" class="text">Visión</h4>
                                 <p style="line-height: 35px;color:#000;font-size: 20px;text-align:justify;">Trabajar en
                                     coordinación con
                                     instituciones y organismos de los diversos sectores, para crear una cultura
@@ -666,6 +670,108 @@
                                     mejorar las condiciones de vida personal, familiar y social, respetando y fomentando
                                     sus derechos.
                                 </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div> <!-- /.row-->
+        </div> <!-- /.container-->
+    </section>
+
+    <section id="home" class="home">
+        <div class="flexslider">
+            <ul class="slides scroll">
+                <li class="first">
+                    <img style="height: 100%;background-size:cover;"
+                        src="{{ asset('assets/images/others/ubris-inicio.png') }}" alt="">
+                </li>
+            </ul>
+        </div>
+    </section>
+    <section class="section" style="padding-top: 0%;margin-bottom: 4%;">
+        <div class="container">
+            <div class="row">
+                <div class="tab-content-main">
+                    <div class="container margin-bottom-60">
+                        <div class="tab-content">
+                            <div class="tab-pane active in" id="tab-content-1">
+                                <div class="margin-bottom-30">
+                                    <div class="tab1-features">
+                                        <div class="info">
+                                            <h4>Requisitos</h4>
+                                            <div class="margin-left-20">
+                                                <div style="display: flex;align-items: center;justify-items: center;">
+                                                    <h4 style="font-weight: normal">1. </h4>
+                                                    <p style="font-size: 20px;color:#000">
+                                                        Pasar con el médico especialista para que determine el
+                                                        diagnostico,
+                                                        tratamiento y tipo del mismo.
+                                                    </p>
+                                                </div>
+                                                <div style="display: flex;align-items: center;">
+                                                    <h4 style="font-weight: normal">2. </h4>
+                                                    <p style="font-size: 20px;color:#000">
+                                                        Acudir a trabajo social despues de que el médico determine que
+                                                        requiere
+                                                        el servicio de UBRIS.
+                                                    </p>
+                                                </div>
+                                            </div>
+                                            <div
+                                                style="display: flex;align-items: center;justify-items: center;padding-right: 0px;">
+                                                <img style="width: 3%;margin:25px;"
+                                                    src="{{ asset('assets/images/icons/icono-requisitos.png') }}"
+                                                    alt="">
+                                                <h4 style="font-size: 20px;text-transform: uppercase;">dos copias de los
+                                                    siguientes documentos:</h4>
+                                            </div>
+                                            <div class="margin-left-20">
+                                                <p style="font-size: 20px;color:#000">
+                                                    Acta de nacimiento en tamaño carta.
+                                                </p>
+                                                <p style="font-size: 20px;color:#000">
+                                                    Comprobante de domicilio no mayor a 3 meses.
+                                                </p>
+                                                <p style="font-size: 20px;color:#000">
+                                                    CURP en formato actual.
+                                                </p>
+                                                <p style="font-size: 20px;color:#000">
+                                                    IFE o INE actualizada, ampliada al 150%.
+                                                </p>
+                                                <p style="font-size: 20px;color:#000">
+                                                    3 fotografías tamaño infantil actualizadas del paciente.
+                                                </p>
+                                            </div>
+                                            <div
+                                                style="display: flex;align-items: center;justify-items: center;padding-right: 0px;">
+                                                <img style="width: 3%;margin:25px;"
+                                                    src="{{ asset('assets/images/icons/icono-requisitos.png') }}"
+                                                    alt="">
+                                                <h4 style="font-size: 20px;line-height: 35px;text-align: justify">
+                                                    EN CASO DE SER MENOR DE EDAD ADEMÁS DE LOS DOCUMENTOS ANTERIORES,
+                                                    DEBEN
+                                                    TRAER LOS SIGUIENTES DOCUMENTOS
+                                                </h4>
+                                            </div>
+                                            <div class="margin-left-20">
+                                                <p style="font-size: 20px;color:#000">
+                                                    Acta de nacimiento en tamaño carta del menor.
+                                                </p>
+                                                <p style="font-size: 20px;color:#000">
+                                                    CURP del menor en formato actual.
+                                                </p>
+                                                <p style="font-size: 20px;color:#000">
+                                                    3 fotografías tamaño infantil.
+                                                </p>
+                                                <p style="font-size: 20px;color:#000">
+                                                    Comprobante de domicilio no mayor a 3 meses (en caso de que el menor
+                                                    viva en un domicilio diferente).
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -732,8 +838,10 @@
         <!--/.container-->
     </section>
 
-    <section id="contacto" class="section"
-        style="background-size:cover;background-image: url({{ asset('assets/images/others/informacion.jpeg') }});">
+    <section id="contacto" class="section" style="background-position: center 0;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;background-image: url({{ asset('assets/images/others/informacion.jpeg') }});">
         <div class="container">
             <div class="row">
                 <div class="title-box text-center white margin-top-40">
@@ -745,12 +853,13 @@
                 <div class="contact-info text-center">
                     <div style="display: flex;align-items:center; justify-content:center;">
                         <i class="fas fa-map-marker-alt" style="font-size: 60px;margin:15px;color:#fff;"></i>
-                        <p style=" font-size: 25px; font-weight: lighter;">Mandarinas S/ N Esq. Naranjos, Col. Fracc.
+                        <p style=" font-size: 25px; font-weight: lighter;line-height: 40px">Mandarinas S/ N Esq.
+                            Naranjos, Col. Fracc.
                             Ojo de Agua, C.P. 55770</p>
                     </div>
                     <div style="display: flex;align-items:center; justify-content:center; margin-top: 60px;">
                         <i class="fas fa-phone" style="font-size: 60px;margin:15px;color:#fff;"></i>
-                        <p style=" font-size: 25px; font-weight: lighter;">
+                        <p style=" font-size: 25px; font-weight: lighter;line-height: 40px">
                             (55) 49 77 45 56
                             <br>
                             <br>
@@ -760,7 +869,7 @@
                     </div>
                     <div style="display: flex;align-items:center; justify-content:center; margin-top: 60px;">
                         <i class="far fa-calendar-alt" style="font-size: 60px;margin:15px;color:#fff;"></i>
-                        <p style=" font-size: 25px; font-weight: lighter;">
+                        <p style=" font-size: 25px; font-weight: lighter;line-height: 40px">
                             Lunes a Viernes de 9:00 am a 5:00 pm
                             <br>
                             <br>
@@ -770,8 +879,9 @@
                     </div>
                     <div style="display: flex;align-items:center; justify-content:center; margin-top: 60px;">
                         <i class="far fa-user-alt" style="font-size: 60px;margin:15px;color:#fff;"></i>
-                        <p style=" font-size: 25px; font-weight: lighter; text-transform: uppercase; line-height: 35px;">
-                            Coordinador de la unidad básica de rehabilitación e integración social u.b.r.i.s  tecámac
+                        <p
+                            style=" font-size: 25px; font-weight: lighter;line-height: 40px text-transform: uppercase; line-height: 35px;">
+                            Coordinador de la unidad básica de rehabilitación e integración social u.b.r.i.s tecámac
                         </p>
                     </div>
                 </div>
