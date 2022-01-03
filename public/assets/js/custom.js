@@ -156,13 +156,10 @@
 	});
 
 	function parallaxInit() {
-		$('#history').parallax("50%", 0.2);
-		$('#facts').parallax("50%", 0.2);
-		$('#cta').parallax("50%", 0.2);
-		$('#skills').parallax("50%", 0.2);
-		$('#video').parallax("50%", 0.2);
-		$('#testimonials').parallax("50%", 0.2);
-		$('#contact').parallax("50%", 0.2);
+		$('#nosotros').parallax("50%", 0.2);
+		$('#servicios').parallax("50%", 0.2);
+		$('#comunicacion').parallax("50%", 0.2);
+		$('#contacto').parallax("50%", 0.2);
 		$('#page-header').parallax("50%", 0.2);
 
 		/*add as necessary*/
@@ -308,7 +305,7 @@ $('.popup-image').magnificPopup({
 		   e.preventDefault();
 		   var hash = this.hash;
 		   $('html, body').stop().animate({
-			   scrollTop: $(hash).offset().top}, 2000, 'easeOutExpo');
+			   scrollTop: $(hash).offset().top}, 100, 'easeOutExpo');
 		});
 		 })(jQuery);
 
@@ -357,7 +354,12 @@ jQuery(document).on('appear', '.pie-chart',  function()  {
                 });
 
                 $('.scrollup').click(function(){
-                    $("html, body").animate({ scrollTop: 0 }, 2000);
+                    $("html, body").animate({ scrollTop: 0 }, 100);
                     return false;
                 });
 
+ $(document).ready(function () {
+     $(".carousel").carousel({
+         interval: 5000,
+     });
+ });

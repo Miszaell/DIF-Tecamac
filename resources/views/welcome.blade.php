@@ -11,6 +11,13 @@
     <link rel="icon" href="{{ asset('assets/images/logo.png') }}" type="image/x-icon">
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
         integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+        integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+        integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous">
+    </script>
+
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('assets/css/bootstrap.min.css') }}" rel="stylesheet">
     <link href="{{ asset('assets/css/font-awesome.css') }}" rel="stylesheet">
@@ -42,7 +49,6 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <!--Start Logo -->
                     <div class="logo-nav">
                         <a href="index.html">
                             <img src="{{ asset('assets/images/logo.png') }}" style="width: 15%; margin-top: 2%;"
@@ -67,9 +73,8 @@
                                         style="width: 10%;" alt="search">
                                 </li>
                             </ul>
-                        </div><!-- end main-menu -->
+                        </div>
                     </div>
-                    <!--End Logo -->
                 </div>
             </div>
         </div>
@@ -77,29 +82,25 @@
 
     <section id="home" class="home">
         <div class="row">
-            <div class="col-sm-12">
-                <div class="flexslider">
-                    <ul class="slides scroll">
-                        <li class="first">
-                            <div class="slider-text-wrapper">
-                                <div class="container">
-                                    <div class="big"
-                                        style="font-size: 160px;font-weight: 900;margin-top: 13%">DIF
-                                    </div>
-                                    <hr>
-                                    <div class="small">Tecámac</div>
-                                </div>
+            <div class="flexslider">
+                <ul class="slides scroll">
+                    <li class="first">
+                        <div class="slider-text-wrapper">
+                            <div class="container">
+                                <div class="big principal-title">DIF</div>
+                                <hr>
+                                <div class="small">Tecámac</div>
                             </div>
-                            <img style="height: 100%" src="{{ asset('assets/images/slider/home-background.png') }}"
-                                alt="">
-                        </li>
-                    </ul>
-                </div>
+                        </div>
+                        <img style="height: 100%;width:100%;"
+                            src="{{ asset('assets/images/slider/home-background.png') }}" alt="home">
+                    </li>
+                </ul>
             </div>
         </div>
     </section>
 
-    <section class="section" style="padding-top: 0%;">
+    <section class="banner" style="padding-top: 0%;">
         <div class="container">
             <div class="row">
                 <div class="tab-content-main">
@@ -141,8 +142,10 @@
                                             <p>Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit
                                                 amet. Et netus et malesuada fames ac turpis egestas tristique
                                                 senectus. </p>
-                                            <li class="filter" data-filter="fashion"
-                                                style="text-transform: none">Leer Más</li>
+                                            <a href="#nosotros" target="_blank" rel="noopener noreferrer">
+                                                <li class="filter" data-filter="fashion"
+                                                    style="text-transform: none">Leer Más</li>
+                                            </a>
                                         </div>
                                     </div>
 
@@ -233,8 +236,10 @@
                                                         voluptates eius velit obcaecati, consequuntur provident, soluta
                                                         ipsam, maiores a sint repellat dolorum doloremque porro iusto
                                                         explicabo assumenda quo eligendi nihil</p>
-                                                    <li class="filter" data-filter="fashion"
-                                                        style="text-transform: none">Conoce Más</li>
+                                                    <a href="#servicios" target="_blank" rel="noopener noreferrer">
+                                                        <li class="filter" data-filter="fashion"
+                                                            style="text-transform: none">Conoce Más</li>
+                                                    </a>
                                                 </div>
                                             </div>
                                         </div>
@@ -258,7 +263,7 @@
             <!-- Work Grid -->
             <ul class="work-grid">
                 <!-- Work Item -->
-                <li class="work-item thumnail-img mix corporate">
+                <li class="work-item thumnail-img mix fashion wedding">
                     <div class="work-image">
                         <img src="{{ asset('assets/images/galeria/1.png') }}" alt="thumbnail">
 
@@ -308,7 +313,7 @@
                 <!--End Work Item -->
 
                 <!-- Work Item -->
-                <li class="work-item thumnail-img mix corporate">
+                <li class="work-item thumnail-img mix fashion wedding">
                     <div class="work-image">
                         <img src="{{ asset('assets/images/galeria/3.png') }}" alt="thumbnail">
 
@@ -333,7 +338,7 @@
                 <!--End Work Item -->
 
                 <!-- Work Item -->
-                <li class="work-item thumnail-img mix corporate">
+                <li class="work-item thumnail-img mix fashion wedding">
                     <div class="work-image">
                         <img src="{{ asset('assets/images/galeria/4.png') }}" alt="thumbnail">
 
@@ -383,7 +388,7 @@
                 <!--End Work Item -->
 
                 <!-- Work Item -->
-                <li class="work-item thumnail-img mix event wedding">
+                <li class="work-item thumnail-img mix fashion wedding">
                     <div class="work-image">
                         <img src="{{ asset('assets/images/galeria/6.png') }}" alt="thumbnail">
 
@@ -408,7 +413,7 @@
                 <!--End Work Item -->
 
                 <!-- Work Item -->
-                <li class="work-item thumnail-img mix event">
+                <li class="work-item thumnail-img mix fashion wedding">
                     <div class="work-image">
                         <img src="{{ asset('assets/images/galeria/7.png') }}" alt="thumbnail">
 
@@ -433,7 +438,7 @@
                 <!--End Work Item -->
 
                 <!-- Work Item -->
-                <li class="work-item thumnail-img mix corporate">
+                <li class="work-item thumnail-img mix fashion wedding">
                     <div class="work-image">
                         <img src="{{ asset('assets/images/galeria/8.png') }}" alt="thumbnail">
 
@@ -458,7 +463,7 @@
                 <!--End Work Item -->
 
                 <!-- Work Item -->
-                <li class="work-item thumnail-img mix event">
+                <li class="work-item thumnail-img mix fashion wedding">
                     <div class="work-image">
                         <img src="{{ asset('assets/images/galeria/6.png') }}" alt="thumbnail">
 
@@ -483,7 +488,7 @@
                 <!--End Work Item -->
 
                 <!-- Work Item -->
-                <li class="work-item thumnail-img mix wedding">
+                <li class="work-item thumnail-img mix fashion wedding">
                     <div class="work-image">
                         <img src="{{ asset('assets/images/galeria/1.png') }}" alt="thumbnail">
 
@@ -508,7 +513,7 @@
                 <!--End Work Item -->
 
                 <!-- Work Item -->
-                <li class="work-item thumnail-img mix fashion">
+                <li class="work-item thumnail-img mix fashion wedding">
                     <div class="work-image">
                         <img src="{{ asset('assets/images/galeria/2.png') }}" alt="thumbnail">
 
@@ -533,7 +538,7 @@
                 <!--End Work Item -->
 
                 <!-- Work Item -->
-                <li class="work-item thumnail-img mix corporate">
+                <li class="work-item thumnail-img mix fashion wedding">
                     <div class="work-image">
                         <img src="{{ asset('assets/images/galeria/3.png') }}" alt="thumbnail">
 
@@ -561,7 +566,7 @@
         </div>
     </section>
 
-    <section id="facts" class="section parallax">
+    <section id="directorio" class="section parallax">
         <div class="overlay"></div>
         <div class="container">
             <div class="row">
@@ -571,8 +576,10 @@
                     <p style="color: #fff;font-size: 20px;" class="text-center">Los servicios los encuentras en las
                         distintas instalaciones de DIF Tecámac, encuentra el más cercano a tu domicilio. </p>
                     <div class="text-center">
-                        <li class="filter" data-filter="fashion" style="text-transform: none;color:#fff;">
-                            Directorio</li>
+                        <a href="#directorio" target="_blank" rel="noopener noreferrer">
+                            <li class="filter" data-filter="fashion" style="text-transform: none;color:#fff;">
+                                Directorio</li>
+                        </a>
                     </div>
                 </div>
             </div> <!-- /.row -->
@@ -602,30 +609,38 @@
                             </div>
                             <div class="row" style="margin-top: 10%;">
                                 <div class="col-md-6">
-                                    <h4 class="subtitle-col cursor-pointer">
-                                        <i class="fas fa-link margin-right-5"></i>
-                                        Mejora Regulatoria
-                                    </h4>
+                                    <a href="#directorio" target="_blank" rel="noopener noreferrer">
+                                        <h4 class="subtitle-col cursor-pointer">
+                                            <i class="fas fa-link margin-right-5"></i>
+                                            Mejora Regulatoria
+                                        </h4>
+                                    </a>
                                 </div>
                                 <div class="col-md-6">
-                                    <h4 class="subtitle-col cursor-pointer">
-                                        <i class="fas fa-link margin-right-5"></i>
-                                        Transparencia
-                                    </h4>
+                                    <a href="#directorio" target="_blank" rel="noopener noreferrer">
+                                        <h4 class="subtitle-col cursor-pointer">
+                                            <i class="fas fa-link margin-right-5"></i>
+                                            Transparencia
+                                        </h4>
+                                    </a>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-md-6">
-                                    <h4 class="subtitle-col cursor-pointer">
-                                        <i class="fas fa-link margin-right-5"></i>
-                                        Aviso de privacidad
-                                    </h4>
+                                    <a href="#directorio" target="_blank" rel="noopener noreferrer">
+                                        <h4 class="subtitle-col cursor-pointer">
+                                            <i class="fas fa-link margin-right-5"></i>
+                                            Aviso de privacidad
+                                        </h4>
+                                    </a>
                                 </div>
                                 <div class="col-md-6">
-                                    <h4 class="subtitle-col cursor-pointer">
-                                        <i class="fas fa-link margin-right-5"></i>
-                                        Denuncias y/o Quejas
-                                    </h4>
+                                    <a href="#directorio" target="_blank" rel="noopener noreferrer">
+                                        <h4 class="subtitle-col cursor-pointer">
+                                            <i class="fas fa-link margin-right-5"></i>
+                                            Denuncias y/o Quejas
+                                        </h4>
+                                    </a>
                                 </div>
                             </div>
                         </div>
@@ -660,7 +675,8 @@
                                 <img src="{{ asset('assets/images/others/vision.png') }}" alt="">
                             </div>
                             <div class="col-md 6">
-                                <h4 style="color: #d4447c;font-size: 25px; margin-bottom: 20px;" class="text">Visión</h4>
+                                <h4 style="color: #d4447c;font-size: 25px; margin-bottom: 20px;"
+                                    class="text">Visión</h4>
                                 <p style="line-height: 35px;color:#000;font-size: 20px;text-align:justify;">Trabajar en
                                     coordinación con
                                     instituciones y organismos de los diversos sectores, para crear una cultura
@@ -689,7 +705,8 @@
             </ul>
         </div>
     </section>
-    <section class="section" style="padding-top: 0%;margin-bottom: 4%;">
+
+    <section class="section" style="padding-top: 0%;">
         <div class="container">
             <div class="row">
                 <div class="tab-content-main">
@@ -784,105 +801,135 @@
     <section id="comunicacion" class="section">
         <div class="container">
             <div class="row">
-
                 <div class="title-box text-center">
                     <h2 class="title">Comunicación</h2>
                 </div>
+                <div class="col-xs-12">
+                    <div class="carousel slide" id="myCarousel">
+                        <div class="carousel-inner">
+                            <div class="item active">
+                                <ul class="thumbnails">
+                                    <li class="col-sm-4">
+                                        <div class="fff">
+                                            <div class="blog-post">
+                                                <div class="post-media">
+                                                    <img src="{{ asset('assets/images/blog/com-1.png') }}" alt="">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="col-sm-4">
+                                        <div class="fff">
+                                            <div class="blog-post">
+                                                <div class="post-media">
+                                                    <img src="{{ asset('assets/images/blog/com-2.png') }}" alt="">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="col-sm-4">
+                                        <div class="fff">
+                                            <div class="blog-post">
+                                                <div class="post-media">
+                                                    <img src="{{ asset('assets/images/blog/com-3.png') }}" alt="">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="item">
+                                <ul class="thumbnails">
+                                    <li class="col-sm-4">
+                                        <div class="fff">
+                                            <div class="blog-post">
+                                                <div class="post-media">
+                                                    <img src="{{ asset('assets/images/blog/com-4.png') }}" alt="">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="col-sm-4">
+                                        <div class="fff">
+                                            <div class="blog-post">
+                                                <div class="post-media">
+                                                    <img src="{{ asset('assets/images/blog/com-5.png') }}" alt="">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="col-sm-4">
+                                        <div class="fff">
+                                            <div class="blog-post">
+                                                <div class="post-media">
+                                                    <img src="{{ asset('assets/images/blog/com-6.png') }}" alt="">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
 
-                <div class="col-md-4">
-                    <div class="blog-post">
-                        <div class="post-media">
-                            <img src="{{ asset('assets/images/blog/com-1.png') }}" alt="">
-                        </div>
+                        <nav>
+                            <ul class="control-box pager">
+                                <li><a data-slide="prev" href="#myCarousel" class=""><i
+                                            class="glyphicon glyphicon-chevron-left"></i></a></li>
+                                <li><a data-slide="next" href="#myCarousel" class=""><i
+                                            class="glyphicon glyphicon-chevron-right"></i></a></li>
+                            </ul>
+                        </nav>
                     </div>
                 </div>
-                <div class="col-md-4">
-                    <div class="blog-post">
-                        <div class="post-media">
-                            <img src="{{ asset('assets/images/blog/com-2.png') }}" alt="">
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="blog-post">
-                        <div class="post-media">
-                            <img src="{{ asset('assets/images/blog/com-3.png') }}" alt="">
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="blog-post">
-                        <div class="post-media">
-                            <img src="{{ asset('assets/images/blog/com-4.png') }}" alt="">
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="blog-post">
-                        <div class="post-media">
-                            <img src="{{ asset('assets/images/blog/com-5.png') }}" alt="">
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="blog-post">
-                        <div class="post-media">
-                            <img src="{{ asset('assets/images/blog/com-6.png') }}" alt="">
-                        </div>
-                    </div>
-                </div>
-
             </div>
-            <!--/.row-->
         </div>
-        <!--/.container-->
     </section>
 
-    <section id="contacto" class="section" style="background-position: center 0;
-    background-repeat: no-repeat;
-    background-size: cover;
-    width: 100%;background-image: url({{ asset('assets/images/others/informacion.jpeg') }});">
-        <div class="container">
-            <div class="row">
-                <div class="title-box text-center white margin-top-40">
-                    <h2 class="title" style="text-transform: uppercase;">Información de contacto</h2>
+    <section id="contacto" class="section" style="background-size: cover;background-attachment: fixed;
+    width: 100%;background-repeat:no-repeat;background-image: url({{ asset('assets/images/galeria/2.png') }});">
+        <div class="layer">
+            <div class="container">
+                <div class="row">
+                    <div class="title-box text-center white margin-top-40">
+                        <h2 class="title" style="text-transform: uppercase;">Información de contacto</h2>
+                    </div>
                 </div>
-            </div>
 
-            <div class="col-md-8 col-md-offset-2 contact-form">
-                <div class="contact-info text-center">
-                    <div style="display: flex;align-items:center; justify-content:center;">
-                        <i class="fas fa-map-marker-alt" style="font-size: 60px;margin:15px;color:#fff;"></i>
-                        <p style=" font-size: 25px; font-weight: lighter;line-height: 40px">Mandarinas S/ N Esq.
-                            Naranjos, Col. Fracc.
-                            Ojo de Agua, C.P. 55770</p>
-                    </div>
-                    <div style="display: flex;align-items:center; justify-content:center; margin-top: 60px;">
-                        <i class="fas fa-phone" style="font-size: 60px;margin:15px;color:#fff;"></i>
-                        <p style=" font-size: 25px; font-weight: lighter;line-height: 40px">
-                            (55) 49 77 45 56
-                            <br>
-                            <br>
-                            <br>
-                            (55) 49 77 44 64
-                        </p>
-                    </div>
-                    <div style="display: flex;align-items:center; justify-content:center; margin-top: 60px;">
-                        <i class="far fa-calendar-alt" style="font-size: 60px;margin:15px;color:#fff;"></i>
-                        <p style=" font-size: 25px; font-weight: lighter;line-height: 40px">
-                            Lunes a Viernes de 9:00 am a 5:00 pm
-                            <br>
-                            <br>
-                            <br>
-                            Sabados de 9:00 am a 01:00 pm
-                        </p>
-                    </div>
-                    <div style="display: flex;align-items:center; justify-content:center; margin-top: 60px;">
-                        <i class="far fa-user-alt" style="font-size: 60px;margin:15px;color:#fff;"></i>
-                        <p
-                            style=" font-size: 25px; font-weight: lighter;line-height: 40px text-transform: uppercase; line-height: 35px;">
-                            Coordinador de la unidad básica de rehabilitación e integración social u.b.r.i.s tecámac
-                        </p>
+                <div class="col-md-8 col-md-offset-2 contact-form">
+                    <div class="contact-info text-center">
+                        <div style="display: flex;align-items:center; justify-content:center;">
+                            <i class="fas fa-map-marker-alt icn" style="margin:15px;color:#fff;"></i>
+                            <p style=" font-size: 25px; font-weight: lighter;line-height: 40px">Mandarinas S/ N Esq.
+                                Naranjos, Col. Fracc.
+                                Ojo de Agua, C.P. 55770</p>
+                        </div>
+                        <div style="display: flex;align-items:center; justify-content:center; margin-top: 10px;">
+                            <i class="fas fa-phone icn" style="margin:15px;color:#fff;"></i>
+                            <p style=" font-size: 25px; font-weight: lighter;line-height: 40px">
+                                (55) 49 77 45 56
+                                <br>
+                                <br>
+                                <br>
+                                (55) 49 77 44 64
+                            </p>
+                        </div>
+                        <div style="display: flex;align-items:center; justify-content:center; margin-top: 10px;">
+                            <i class="far fa-calendar-alt icn" style="margin:15px;color:#fff;"></i>
+                            <p style=" font-size: 25px; font-weight: lighter;line-height: 40px">
+                                Lunes a Viernes de 9:00 am a 5:00 pm
+                                <br>
+                                <br>
+                                <br>
+                                Sabados de 9:00 am a 01:00 pm
+                            </p>
+                        </div>
+                        <div style="display: flex;align-items:center; justify-content:center; margin-top: 10px;">
+                            <i class="far fa-user-alt icn" style="margin:15px;color:#fff;"></i>
+                            <p
+                                style=" font-size: 25px; font-weight: lighter;line-height: 40px text-transform: uppercase; line-height: 35px;">
+                                Coordinador de la unidad básica de rehabilitación e integración social u.b.r.i.s tecámac
+                            </p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -927,7 +974,9 @@
     <script type="text/javascript" src="{{ asset('assets/js/jquery.parallax-1.1.3.js') }}"></script>
     <script type="text/javascript" src="{{ asset('assets/js/jquery.mixitup.min.js') }}"></script>
     <script type="text/javascript" src="{{ asset('assets/js/custom.js') }}"></script>
+    <script>
 
+    </script>
 </body>
 
 </html>

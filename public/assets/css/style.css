@@ -25,6 +25,67 @@ h1, h2, h3, h4, h5, h6 {
     line-height: 30px;
 }
 
+
+.layer {
+    background-color: rgba(148, 9, 51, 0.5);
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+}
+
+.thumbnails li {
+    list-style-type: none;
+}
+
+.control-box {
+    text-align: right;
+    width: 100%;
+}
+
+.carousel-control {
+    background: #666;
+    border: 0px;
+    border-radius: 0px;
+    display: inline-block;
+    font-size: 34px;
+    font-weight: 200;
+    line-height: 18px;
+    opacity: 0.5;
+    padding: 4px 10px 0px;
+    position: static;
+    height: 30px;
+    width: 15px;
+}
+
+
+
+/* Mobile Only */
+@media (max-width: 767px) {
+    .page-header, .control-box {
+        text-align: center;
+    }
+}
+
+@media (max-width: 479px) {
+    .caption {
+        word-break: break-all;
+    }
+}
+
+@media screen and (min-width: 0px) and (max-width: 799px) {
+    .icn {
+        display: none;
+    }
+}
+
+@media screen and (min-width: 800px) {
+    .icn {
+        font-size: 60px
+    }
+
+}
+
 .title-col {
     color: #fff;
     font-size: 30px;
@@ -177,7 +238,7 @@ textarea:focus, input[type="text"]:focus, input[type="password"]:focus, input[ty
 }
 
 .section {
-    padding: 100px 0 70px;
+    padding: 100px 0 60px;
     position: relative;
 }
 
@@ -822,15 +883,50 @@ section {
     width: auto;
 }
 
-.slider-text-wrapper {
-    position: absolute;
-    width: 100%;
-    height: 250px;
-    top: 50%;
-    left: 0;
-    margin-top: -125px;
-    text-align: center;
-    z-index: 999;
+@media screen and (min-width: 800px) {
+    .slider-text-wrapper {
+        position: absolute;
+        width: 100%;
+        height: 250px;
+        top: 50%;
+        left: 0;
+        margin-top: -125px;
+        text-align: center;
+        z-index: 999;
+    }
+
+    .slider-text-wrapper hr {
+        margin-top: 30px;
+    }
+
+    .principal-title {
+        font-size: 160px;
+        font-weight: 900;
+        margin-top: 13%
+    }
+}
+
+@media screen and (min-width: 0px) and (max-width: 799px) {
+    .slider-text-wrapper {
+        position: absolute;
+        width: 100%;
+        height: 50px;
+        top: 10%;
+        left: 0;
+        margin-top: -100px;
+        text-align: center;
+        z-index: 999;
+    }
+
+    .slider-text-wrapper hr {
+        display: none;
+    }
+
+    .principal-title {
+        font-size: 160px;
+        font-weight: 900;
+        margin-top: 25%
+    }
 }
 
 .slider-text-wrapper .btn {
@@ -1055,7 +1151,7 @@ html[xmlns] .slides {
 /* Fun Facs
 /*-----------------------------------------------------------------*/
 
-#facts {
+#directorio {
     background: url(../images/parallax/banner-dif.png) no-repeat;
     padding: 150px 0px 100px;
 }
