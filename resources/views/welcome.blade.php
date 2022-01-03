@@ -974,9 +974,6 @@
     <script type="text/javascript" src="{{ asset('assets/js/jquery.parallax-1.1.3.js') }}"></script>
     <script type="text/javascript" src="{{ asset('assets/js/jquery.mixitup.min.js') }}"></script>
     <script type="text/javascript" src="{{ asset('assets/js/custom.js') }}"></script>
-    <script>
-
-    </script>
 </body>
 
 </html>
