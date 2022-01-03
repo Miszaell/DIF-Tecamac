@@ -683,7 +683,7 @@
         <div class="flexslider">
             <ul class="slides scroll">
                 <li class="first">
-                    <img style="height: 100%;background-size:cover;"
+                    <img style="width: 100%;background-size:cover;"
                         src="{{ asset('assets/images/others/ubris-inicio.png') }}" alt="">
                 </li>
             </ul>

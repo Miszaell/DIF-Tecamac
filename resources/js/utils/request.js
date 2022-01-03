@@ -1,5 +1,11 @@
 import axios from "axios";
-localStorage.setItem("url", "http://127.0.0.1:8000/api/");
+let ip_addr = document.location.hostname;
+let addrss = "http://"+ip_addr + "/api/";
+
+if (addrss === "http://localhost/api/") {
+    addrss = "http://127.0.0.1:8000/api/"
+}
+localStorage.setItem("url", addrss);
 const server = localStorage.getItem("url");
 
 export default {
